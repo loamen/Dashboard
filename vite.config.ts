@@ -8,7 +8,7 @@ import VueI18n from '@intlify/unplugin-vue-i18n/vite'
 
 let base = '/'
 if (process.env.VITE_APP_BUILD_MODE === 'crx') base = './'
-if (process.env.VITE_APP_BUILD_MODE === 'cdn') base = 'https://cdn.kongfandong.cn/howdz/dist/'
+if (process.env.VITE_APP_BUILD_MODE === 'cdn') base = 'https://nav.yooho.top/'
 
 // https://vitejs.dev/config/
 export default defineConfig({
