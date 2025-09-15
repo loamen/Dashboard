@@ -7,7 +7,7 @@
     <BackgroundImage ref="bg" :background="global.background" :filter="global.backgroundFilter" />
     <BackgroundEffect />
     <GooeyMenu
-      v-if="global.showMenuBtn !== false || isMobile"
+      v-if="global.showMenuBtn !== false || shouldShowMenu"
       @add-component="showAddDialog"
       @show-global-config="showGlobalConfig"
       @show-auxiliary-config="showAuxiliaryConfig"
@@ -164,6 +164,11 @@ const menuList = ref([
       isLock.value ? h(Icon, { name: 'unlock', size: 18 }) : h(Icon, { name: 'lock', size: 18 })
   }
 ])
+
+const shouldShowMenu = computed(() => {
+  const urlParams = new URLSearchParams(window.location.search)
+  return urlParams.get('menu') === 'show'
+})
 
 const needShowDefaultThemePicker = computed(() => {
   return false
