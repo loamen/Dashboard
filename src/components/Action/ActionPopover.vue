@@ -182,7 +182,7 @@ defineExpose({
   color: #f4f4f4;
   position: absolute;
   top: 0;
-  right: -40px;
+  right: 0px;
   cursor: pointer;
   border-radius: 4px;
   filter: drop-shadow(0 0 1px #262626);

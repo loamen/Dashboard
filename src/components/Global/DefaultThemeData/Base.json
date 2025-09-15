@@ -100,7 +100,7 @@
                 "id": "95d2082ffec4c",
                 "type": "icon",
                 "title": "哔哩哔哩",
-                "url": "https://www.bilibili.com/",
+                "url": "https://www.bilibili.com/?from=yooho.top",
                 "iconType": "network",
                 "iconPath": "https://i0.hdslb.com/bfs/static/jinkela/long/images/favicon.ico",
                 "bgColor": "rgba(241, 243, 244, 1)",
@@ -110,7 +110,7 @@
                 "id": "iqiyi_com",
                 "type": "icon",
                 "title": "爱奇艺",
-                "url": "https://www.iqiyi.com/",
+                "url": "https://www.iqiyi.com/?from=yooho.top",
                 "iconType": "network",
                 "iconPath": "https://www.iqiyipic.com/common/images/logo.ico",
                 "bgColor": "rgba(241, 243, 244, 1)",
@@ -120,7 +120,7 @@
                 "id": "youku_com",
                 "type": "icon",
                 "title": "优酷",
-                "url": "https://www.youku.com/",
+                "url": "https://www.youku.com/?from=yooho.top",
                 "iconType": "network",
                 "iconPath": "https://img.alicdn.com/imgextra/i2/O1CN01BeAcgL1ywY0G5nSn8_!!6000000006643-2-tps-195-195.png",
                 "bgColor": "rgba(241, 243, 244, 1)",
@@ -130,7 +130,7 @@
                 "id": "vqq_com",
                 "type": "icon",
                 "title": "腾讯视频",
-                "url": "https://v.qq.com/",
+                "url": "https://v.qq.com/?from=yooho.top",
                 "iconType": "network",
                 "iconPath": "https://v.qq.com/favicon.ico",
                 "bgColor": "rgba(241, 243, 244, 1)",
@@ -152,7 +152,7 @@
             "id": "c79b09ed6348f",
             "type": "icon",
             "title": "AI工具",
-            "url": "https://www.aidhg.com",
+            "url": "https://www.aidhg.com/?from=yooho.top",
             "iconType": "network",
             "iconPath": "https://www.aidhg.com/wp-content/themes/onenav/images/favicon.png",
             "bgColor": "rgba(241, 243, 244, 1)",
@@ -162,7 +162,7 @@
             "id": "86300f8be891f",
             "type": "icon",
             "title": "秘塔搜索",
-            "url": "https://metaso.cn",
+            "url": "https://metaso.cn/?from=yooho.top",
             "iconType": "network",
             "iconPath": "https://metaso.cn/apple-touch-icon.png",
             "bgColor": "rgba(241, 243, 244, 1)",
@@ -172,7 +172,7 @@
             "id": "0d56da2186252",
             "type": "icon",
             "title": "扩展插件",
-            "url": "https://www.crxsoso.com/firefox/category/extensions",
+            "url": "https://www.crxsoso.com/firefox/category/extensions/?from=yooho.top",
             "iconType": "network",
             "iconPath": "https://www.crxsoso.com/apple-touch-icon.png",
             "bgColor": "rgba(241, 243, 244, 1)",
@@ -182,7 +182,7 @@
             "id": "a68bbf5743897",
             "type": "icon",
             "title": "Y浏览器",
-            "url": "https://www.yooho.top",
+            "url": "https://www.yooho.top/?from=yooho.top",
             "iconType": "network",
             "iconPath": "https://doc.howdz.xyz/favicon.ico",
             "bgColor": "rgba(241, 243, 244, 1)",
@@ -214,19 +214,19 @@
         "engineList": [
           {
             "name": "Bing-CN",
-            "link": "https://cn.bing.com/search?q=",
+            "link": "https://cn.bing.com/search?from=yooho.top&q=",
             "iconType": "local",
             "iconPath": "https://cdn.kongfandong.cn/img/search-icons/bing.svg"
           },
           {
             "name": "百度",
-            "link": "https://www.baidu.com/s?wd=",
+            "link": "https://www.baidu.com/s?from=yooho.top&wd=",
             "iconType": "local",
             "iconPath": "https://cdn.kongfandong.cn/img/search-icons/baidu.svg"
           },
           {
             "name": "Google",
-            "link": "https://www.google.com/search?q=",
+            "link": "https://www.google.com/search?from=yooho.top&q=",
             "iconType": "local",
             "iconPath": "https://cdn.kongfandong.cn/img/search-icons/google.svg"
           },
@@ -240,25 +240,25 @@
         "backupEngineList": [
           {
             "name": "Bing-EN",
-            "link": "https://cn.bing.com/search?ensearch=1&q=",
+            "link": "https://cn.bing.com/search?ensearch=1&from=yooho.top&q=",
             "iconType": "local",
             "iconPath": "https://cdn.kongfandong.cn/img/search-icons/bing-en.svg"
           },
           {
             "name": "搜狗",
-            "link": "https://www.sogou.com/tx?query=",
+            "link": "https://www.sogou.com/tx?from=yooho.top&query=",
             "iconType": "local",
             "iconPath": "https://cdn.kongfandong.cn/img/search-icons/sougou.svg"
           },
           {
             "name": "Bilibili",
-            "link": "https://search.bilibili.com/all?keyword=",
+            "link": "https://search.bilibili.com/all?from=yooho.top&keyword=",
             "iconType": "local",
             "iconPath": "https://cdn.kongfandong.cn/img/search-icons/bilibili.svg"
           },
           {
             "name": "淘宝",
-            "link": "https://s.taobao.com/search?q=",
+            "link": "https://s.taobao.com/search?from=yooho.top&q=",
             "iconType": "local",
             "iconPath": "https://cdn.kongfandong.cn/img/search-icons/taobao.svg"
           }
