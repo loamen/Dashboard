@@ -284,26 +284,9 @@
       "moved": false
     }
   ],
-  "affix": [
-    {
-      "position": 2,
-      "affixInfo": {
-        "mode": 2,
-        "x": 10,
-        "y": 10
-      },
-      "w": 180,
-      "h": 80,
-      "background": "transparent",
-      "backgroundFilter": "brightness(0.9)",
-      "borderRadius": 4,
-      "boxShadow": "",
-      "i": "kqtqm8in658",
-      "zIndex": 10
-    }
-  ],
+  "affix": [],
   "global": {
-    "background": "#CBCFF3 url(https://cdn.kongfandong.cn/Rain.webm) center center / cover",
+    "background": "#CBCFF3 url(https://bing.img.run/1920x1080.php) center center / cover",
     "backgroundFilter": "brightness(0.65)",
     "lang": "zh-cn",
     "gutter": 10,
