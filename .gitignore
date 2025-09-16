@@ -21,4 +21,4 @@ dist/howdz-dashboard.zip
 .env.test.local
 .env.production.local
 .env
-dist/
+dist/*

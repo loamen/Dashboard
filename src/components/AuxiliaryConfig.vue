@@ -82,22 +82,22 @@ export default defineComponent({
         label: '动画滤镜',
         cName: 'EffectSelector'
       },
-      {
-        label: '常见问题',
-        cName: 'FAQ'
-      },
+      // {
+      //   label: '常见问题',
+      //   cName: 'FAQ'
+      // },
       {
         label: '导入导出',
         cName: 'ImportExport'
       },
-      {
-        label: '关于项目',
-        cName: 'About'
-      },
-      {
-        label: '更新日志',
-        cName: 'ChangeLog'
-      },
+      // {
+      //   label: '关于项目',
+      //   cName: 'About'
+      // },
+      // {
+      //   label: '更新日志',
+      //   cName: 'ChangeLog'
+      // },
       ...(isPreviewMode ? [] : [{
         label: '清除数据',
         cName: 'CleanCache'

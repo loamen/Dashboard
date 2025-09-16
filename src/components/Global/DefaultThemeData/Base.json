@@ -169,16 +169,6 @@
             "children": []
           },
           {
-            "id": "0d56da2186252",
-            "type": "icon",
-            "title": "扩展插件",
-            "url": "https://www.crxsoso.com/firefox/category/extensions/?from=yooho.top",
-            "iconType": "network",
-            "iconPath": "https://www.crxsoso.com/apple-touch-icon.png",
-            "bgColor": "rgba(241, 243, 244, 1)",
-            "children": []
-          },
-          {
             "id": "a68bbf5743897",
             "type": "icon",
             "title": "Y浏览器",
@@ -213,28 +203,34 @@
       "componentSetting": {
         "engineList": [
           {
-            "name": "Bing-CN",
-            "link": "https://cn.bing.com/search?from=yooho.top&q=",
-            "iconType": "local",
-            "iconPath": "https://cdn.kongfandong.cn/img/search-icons/bing.svg"
-          },
-          {
             "name": "百度",
             "link": "https://www.baidu.com/s?from=yooho.top&wd=",
             "iconType": "local",
             "iconPath": "https://cdn.kongfandong.cn/img/search-icons/baidu.svg"
           },
           {
-            "name": "Google",
-            "link": "https://www.google.com/search?from=yooho.top&q=",
+            "name": "Bing-CN",
+            "link": "https://cn.bing.com/search?from=yooho.top&q=",
             "iconType": "local",
-            "iconPath": "https://cdn.kongfandong.cn/img/search-icons/google.svg"
+            "iconPath": "https://cdn.kongfandong.cn/img/search-icons/bing.svg"
+          },
+          {
+            "name": "Google",
+            "link": "https://metaso.cn/?from=yooho.top&q=",
+            "iconType": "local",
+            "iconPath": "https://metaso.cn/apple-touch-icon.png"
           },
           {
             "name": "有道词典",
             "link": "http://dict.youdao.com/w/",
             "iconType": "local",
             "iconPath": "https://cdn.kongfandong.cn/img/search-icons/youdao.svg"
+          },
+          {
+            "name": "Google",
+            "link": "https://www.google.com/search?from=yooho.top&q=",
+            "iconType": "local",
+            "iconPath": "https://cdn.kongfandong.cn/img/search-icons/google.svg"
           }
         ],
         "backupEngineList": [
