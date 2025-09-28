@@ -90,8 +90,8 @@
           {
             "id": "e51b079c9639f",
             "type": "folder",
-            "title": "视频网站",
-            "url": "视频网站",
+            "title": "音乐视频",
+            "url": "音乐视频",
             "iconType": "api",
             "iconPath": "",
             "bgColor": "rgba(241, 243, 244, 1)",
@@ -161,7 +161,7 @@
           {
             "id": "86300f8be891f",
             "type": "icon",
-            "title": "秘塔搜索",
+            "title": "秘塔AI",
             "url": "https://metaso.cn/?from=yooho.top",
             "iconType": "network",
             "iconPath": "https://metaso.cn/apple-touch-icon.png",
@@ -215,7 +215,7 @@
             "iconPath": "https://cdn.kongfandong.cn/img/search-icons/bing.svg"
           },
           {
-            "name": "Google",
+            "name": "秘塔AI",
             "link": "https://metaso.cn/?from=yooho.top&q=",
             "iconType": "local",
             "iconPath": "https://metaso.cn/apple-touch-icon.png"
