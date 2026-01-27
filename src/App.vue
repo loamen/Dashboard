@@ -199,6 +199,40 @@ onMounted(async () => {
       appleTouchIconDom.href = await svgBase64ToPng(global.value.siteIcon, 256)
     }
   }
+  // 如果是首次使用，应用默认的 Basic 主题
+  const config = JSON.parse(localStorage.getItem('config') || '{}')
+  if ((!config.list || config.list.length === 0) && (!config.affix || config.affix.length === 0)) {
+    // 应用 Basic 主题
+    import('@/components/Global/DefaultThemeData/Base.json').then(module => {
+      const Base = module.default
+      const {
+        list,
+        affix,
+        global,
+        showBackgroundEffect,
+        showRefreshBtn,
+        tabList,
+        showTabSwitchBtn,
+        enableKeydownSwitchTab,
+        backgroundEffectActive
+      } = Base
+      global.lang = store.global.lang || 'zh-cn'
+      store.updateStates([
+        { key: 'tabList', value: tabList },
+        { key: 'list', value: list },
+        { key: 'affix', value: affix },
+        { key: 'showBackgroundEffect', value: showBackgroundEffect },
+        { key: 'showRefreshBtn', value: showRefreshBtn },
+        { key: 'showTabSwitchBtn', value: showTabSwitchBtn },
+        { key: 'enableKeydownSwitchTab', value: enableKeydownSwitchTab },
+        { key: 'backgroundEffectActive', value: backgroundEffectActive }
+      ])
+      store.updateGlobal(global)
+      if (global.loadHarmonyOSFont) {
+        loadHarmonyOSFont()
+      }
+    })
+  }
 })
 </script>
 <style lang="scss" scoped>
