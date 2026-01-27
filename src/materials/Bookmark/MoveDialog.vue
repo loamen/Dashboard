@@ -2,9 +2,9 @@
   <easy-dialog
     v-model="dialogVisible"
     :title="$t('选择文件夹')"
-    width="min(280px, 90vw)"
+    width="min(280px, 86vw)"
     height="min(320px, 60vh)"
-    custom-wrapper-class="bookmark-config-dialog"
+    custom-class="bookmark-config-dialog"
     @close="close"
   >
     <el-radio-group v-model="moveFolderTarget">

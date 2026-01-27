@@ -34,10 +34,17 @@ section {
   box-sizing: border-box;
   -webkit-touch-callout: none;
   user-select: var(--user-select, 'inherit');
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 ul,
 li {
   list-style: none;
+}
+div, img, input, textarea, button, select{
+  user-select: var(--user-select, 'inherit');
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -422,4 +429,9 @@ body {
 }
 .el-select-dropdown__list {
   padding: 6px;
+}
+
+.global-iconify-color-picker,
+.standard-color-picker {
+  z-index: 4500 !important;
 }

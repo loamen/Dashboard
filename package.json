@@ -1,6 +1,6 @@
 {
   "name": "howdz-dashboard",
-  "version": "1.5.5",
+  "version": "1.8.0",
   "description": "Custom your personal browser start page from some configurable components",
   "author": {
     "name": "leon-kfd",
@@ -54,16 +54,15 @@
     "@milkdown/preset-commonmark": "5.3.1",
     "@milkdown/preset-gfm": "5.3.1",
     "@milkdown/theme-nord": "5.3.1",
+    "@vueuse/core": "^14.1.0",
     "dayjs": "^1.10.4",
     "element-plus": "2.4.1",
-    "eslint-plugin-oxlint": "^0.2.7",
     "file-saver": "^2.0.5",
     "js-md5": "^0.7.3",
     "localforage": "^1.10.0",
     "pako": "1.0.11",
     "pinia": "^2.0.11",
     "pinia-plugin-persistedstate": "^1.5.0",
-    "rough-notation": "^0.5.1",
     "vue": "^3.2.4",
     "vue-eslint-parser": "^9.4.2",
     "vue-grid-layout": "3.0.0-beta1",
@@ -73,9 +72,9 @@
   "devDependencies": {
     "@commitlint/config-conventional": "^16.2.4",
     "@intlify/unplugin-vue-i18n": "^1.4.0",
+    "@types/chrome": "^0.1.35",
     "@types/file-saver": "^2.0.2",
     "@types/js-md5": "^0.4.2",
-    "@types/node": "^14.14.37",
     "@types/pako": "^1.0.6",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
@@ -88,6 +87,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "dotenv": "^16.3.1",
     "eslint": "^8.57.0",
+    "eslint-plugin-oxlint": "^0.2.7",
     "eslint-plugin-vue": "^9.24.0",
     "husky": "^7.0.4",
     "oxlint": "^0.2.16",
@@ -96,7 +96,7 @@
     "sass": "^1.68.0",
     "typescript": "5.2.2",
     "vite": "^5.2.8",
-    "vite-plugin-md": "^0.21.5"
+    "vite-plugin-markdown": "^2.2.0"
   },
   "repository": {
     "type": "git",

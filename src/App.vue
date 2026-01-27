@@ -1,13 +1,13 @@
 <template>
   <div
-    v-mouse-menu="{ menuList, drop: () => isMobile, iconType: 'vnode-icon' }"
+    v-mouse-menu="mouseMenuOptions"
     class="page"
     :style="global.globalFontFamily && `font-family: ${global.globalFontFamily}`"
   >
     <BackgroundImage ref="bg" :background="global.background" :filter="global.backgroundFilter" />
     <BackgroundEffect />
     <GooeyMenu
-      v-if="global.showMenuBtn !== false || shouldShowMenu"
+      v-if="global.showMenuBtn !== false || isMobile"
       @add-component="showAddDialog"
       @show-global-config="showGlobalConfig"
       @show-auxiliary-config="showAuxiliaryConfig"
@@ -34,7 +34,8 @@ import TabCarousel from './components/Global/TabCarousel.vue'
 import vMouseMenu from '@/plugins/mouse-menu'
 import { useStore } from '@/store'
 import { useI18n } from 'vue-i18n'
-import { uid, loadHarmonyOSFont } from '@/utils'
+import { uid, loadHarmonyOSFont, isIOSSafari } from '@/utils'
+import { svgBase64ToPng } from '@/utils/images'
 import Icon from '@/components/Tools/Icon.vue'
 import { ElNotification } from 'element-plus'
 const store = useStore()
@@ -165,54 +166,38 @@ const menuList = ref([
   }
 ])
 
-const shouldShowMenu = computed(() => {
-  const urlParams = new URLSearchParams(window.location.search)
-  return urlParams.get('menu') === 'show'
-})
+const mouseMenuOptions = computed(() => ({
+  menuList: menuList.value,
+  disabled: (params, clickDom) => {
+    const isLongPressBookmark = isMobile && !!clickDom.closest('.material-bookmark .item')
+    return isLongPressBookmark || !isLock.value
+  },
+  iconType: 'vnode-icon'
+}))
 
 const needShowDefaultThemePicker = computed(() => {
-  return false
+  if (store.tabList && store.tabList.length > 1) return false
+  const isPreviewMode = location.href.includes('preview=')
+  if (isPreviewMode) return false
+  const config = JSON.parse(localStorage.getItem('config') || '{}')
+  if ((!config.list || config.list.length === 0) && (!config.affix || config.affix.length === 0)) {
+    return true
+  } else {
+    return false
+  }
 })
 
-onMounted(() => {
+onMounted(async () => {
   // 加载鸿蒙字体
   if (store.global.loadHarmonyOSFont) {
     loadHarmonyOSFont()
   }
-  
-  // 如果是首次使用，应用默认的 Basic 主题
-  const config = JSON.parse(localStorage.getItem('config') || '{}')
-  if ((!config.list || config.list.length === 0) && (!config.affix || config.affix.length === 0)) {
-    // 应用 Basic 主题
-    import('@/components/Global/DefaultThemeData/Base.json').then(module => {
-      const Base = module.default
-      const {
-        list,
-        affix,
-        global,
-        showBackgroundEffect,
-        showRefreshBtn,
-        tabList,
-        showTabSwitchBtn,
-        enableKeydownSwitchTab,
-        backgroundEffectActive
-      } = Base
-      global.lang = store.global.lang || 'zh-cn'
-      store.updateStates([
-        { key: 'tabList', value: tabList },
-        { key: 'list', value: list },
-        { key: 'affix', value: affix },
-        { key: 'showBackgroundEffect', value: showBackgroundEffect },
-        { key: 'showRefreshBtn', value: showRefreshBtn },
-        { key: 'showTabSwitchBtn', value: showTabSwitchBtn },
-        { key: 'enableKeydownSwitchTab', value: enableKeydownSwitchTab },
-        { key: 'backgroundEffectActive', value: backgroundEffectActive }
-      ])
-      store.updateGlobal(global)
-      if (global.loadHarmonyOSFont) {
-        loadHarmonyOSFont()
-      }
-    })
+  // IOS Safari icon不支持svg特殊处理成png
+  if (isIOSSafari() && global.value.siteIcon) {
+    const appleTouchIconDom = document.querySelector("link[rel='apple-touch-icon']") as HTMLLinkElement
+    if (appleTouchIconDom) {
+      appleTouchIconDom.href = await svgBase64ToPng(global.value.siteIcon, 256)
+    }
   }
 })
 </script>

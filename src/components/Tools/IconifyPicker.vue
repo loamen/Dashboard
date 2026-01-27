@@ -4,6 +4,7 @@
     :title="$t('图标选择器')"
     width="min(840px, 98vw)"
     height="min(580px, 90vh)"
+    :zIndex="3000"
     @close="close"
   >
     <div class="icon-page-wrapper">
@@ -67,7 +68,7 @@
         <div class="color-setting">
           <template v-if="activeIcon">
             <div class="label">{{ $t('选择颜色') }}: </div>
-            <el-color-picker v-model="colorSetting" :disabled="!isSingleColor"></el-color-picker>
+            <el-color-picker v-model="colorSetting" :disabled="!isSingleColor" popper-class="global-iconify-color-picker"></el-color-picker>
             <div class="color-text">({{ isSingleColor ? colorSetting : '多色图标不可设置' }})</div>
           </template>
         </div>
@@ -231,6 +232,8 @@ defineExpose({
     padding: 6px 0;
     display: flex;
     align-items: center;
+    overflow: hidden;
+    flex: 1;
     .label {
       font-size: 14px;
       color: #888;
@@ -240,6 +243,11 @@ defineExpose({
       font-size: 14px;
       color: #464646;
       margin-left: 8px;
+      width: 100%;
+      flex: 1;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
   }
 }

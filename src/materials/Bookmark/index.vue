@@ -228,6 +228,8 @@ import { ElNotification } from 'element-plus'
 import { uid } from '@/utils'
 import { useI18n } from 'vue-i18n'
 import type { MenuSetting } from '@howdyjs/mouse-menu'
+import { isURL, judgeAddHttps } from '@/utils'
+
 const props = defineProps({
   componentSetting: {
     type: Object,
@@ -305,10 +307,7 @@ const menuList = ref<MenuSetting[]>([
     label: () => t('新标签页打开'),
     customClass: 'skip-icon',
     fn: (params: any) => {
-      let target = params.element.url
-      if (!/https?:\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]/.test(target)) {
-        target = 'https://' + target
-      }
+      const target = judgeAddHttps(params.element.url as string)
       window.open(target)
     },
     hidden: (params: any) => params.element.type === 'folder'
@@ -317,10 +316,7 @@ const menuList = ref<MenuSetting[]>([
     label: () => t('IFrame窗口打开'),
     customClass: 'skip-icon',
     fn: (params: any) => {
-      let target = params.element.url
-      if (!/https?:\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]/.test(target)) {
-        target = 'https://' + target
-      }
+      const target = judgeAddHttps(params.element.url as string)
       iframeOpener.value.open(target)
     },
     hidden: (params: any) => params.element.type === 'folder'
@@ -471,16 +467,21 @@ const importBookmark = (bookmarkData: any[]) => {
 const jump = (element: Bookmark, $event?: any) => {
   if (!isInBatch.value) {
     if (element.type === 'icon') {
-      let target = element.url as string
-      if (!/https?:\/\/[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]/.test(target)) {
-        target = 'https://' + target
-      }
+      const target = judgeAddHttps(element.url as string)
       if (props.componentSetting.jumpType === 3) {
         iframeOpener.value.open(target, $event.currentTarget)
       } else if (props.componentSetting.jumpType === 2) {
-        window.location.href = target
+        try {
+          chrome.tabs.update({ url: target })
+        } catch {
+          window.location.href = target
+        }
       } else {
-        window.open(target)
+        try {
+          chrome.tabs.create({ url: target })
+        } catch {
+          window.open(target)
+        }
       }
     } else if (element.type === 'folder') {
       popover.value.defaultOpen(
@@ -593,6 +594,7 @@ const folderOpenerSortChange = () => {
 }
 const popoverClosed = () => {
   folderOpener.value = null
+  isInBatch.value = false
 }
 
 const isInBatch = ref(false)
@@ -630,9 +632,13 @@ const drapOverEvent = (e: DragEvent) => {
 const dropEvent = (e: DragEvent) => {
   e.preventDefault()
   const data = e.dataTransfer?.getData('text')
-  if (!data || !data.includes('http')) return
+  if (!data || !isURL(data)) return
+  let urlTxt = data
+  if (!urlTxt.startsWith('http')) {
+    urlTxt = 'https://' + urlTxt
+  }
   try {
-    const url = new URL(data)
+    const url = new URL(urlTxt)
     configDialog.value.open({ url: url.href })
     configDialogClosed.value = false
   } catch (e) {
@@ -792,7 +798,9 @@ onBeforeUnmount(() => {
   position: absolute;
   bottom: 20px;
   width: 480px;
-  left: calc(50% - 240px);
+  max-width: 90vw;
+  left: 50%;
+  transform: translateX(-50%);
   background: rgba(#292942, 0.95);
   height: 44px;
   border-radius: 22px;
@@ -843,6 +851,7 @@ onBeforeUnmount(() => {
       cursor: pointer;
       color: rgb(226, 226, 226);
       font-size: 14px;
+      line-height: 1;
       svg {
         margin-right: 2px;
       }
